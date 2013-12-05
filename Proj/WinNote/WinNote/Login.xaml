@@ -1,0 +1,91 @@
+﻿<Window x:Name="Login_window" x:Class="WinNote.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="550" Width="725" WindowStyle="None" ResizeMode="NoResize" Topmost="True" AllowsTransparency="True" Foreground="Black" Background="Transparent">
+
+    <Grid>
+        <Image Source="Bk01.png"/>
+        <TextBox x:Name="Txb_username" HorizontalAlignment="Left" Height="36" Margin="326,220,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="195" ToolTip="Please input your ID" FontSize="24"/>
+        <PasswordBox x:Name="Txb_password" HorizontalAlignment="Left" Height="36" Margin="326,318,0,0"  VerticalAlignment="Top" Width="195" ToolTip="Please input your password" FontSize="24"/>
+        <Button x:Name="Btn_login" HorizontalAlignment="Left" Margin="294,399,0,0" VerticalAlignment="Top" Width="160" Height="93" ToolTip="Login" Click="Login_Click" BorderThickness="0" Style="{StaticResource SwitchImageButtonStyle}">
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="MouseEnter">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="Btn_login" Storyboard.TargetProperty = "Width"  From="160" To="180"  Duration="0:0:0"></DoubleAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="MouseLeave">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="Btn_login" Storyboard.TargetProperty="Width" From="180" To="160" Duration="0:0:0"></DoubleAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Button.Triggers>
+            <Button.Background>
+                <ImageBrush ImageSource="Btn_login.png"></ImageBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Btn_exit" Content="" HorizontalAlignment="Left" Margin="643,36,0,0" VerticalAlignment="Top" Width="72" Height="66" BorderThickness="0" ToolTip="Exit" RenderTransformOrigin="0.061,1.1" Focusable="False" IsHitTestVisible="True" Style="{StaticResource SwitchImageButtonStyle}" Click="Click_Exit" >
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="MouseEnter">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="Btn_exit" Storyboard.TargetProperty="Width" From="72" To="77"  Duration="0:0:0"></DoubleAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="MouseLeave">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="Btn_exit" Storyboard.TargetProperty="Width" From="77" To="72" Duration="0:0:0"></DoubleAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Button.Triggers>
+            <Button.Background>
+                <ImageBrush ImageSource="close.png"></ImageBrush>
+            </Button.Background>
+        </Button>
+        <Label x:Name="Lb_username" Content="Username:" HorizontalAlignment="Left" Margin="165,209,0,0" VerticalAlignment="Top" Height="47" Width="161" FontSize="24" FontFamily="Segoe Print" Foreground="#FFCB1717"/>
+        <Label x:Name="Lb_password" Content="Password:" HorizontalAlignment="Left" Margin="165,309,0,0" VerticalAlignment="Top" FontSize="24" Foreground="#FFCB1717" FontFamily="Segoe Print" Width="128"/>
+        <Button x:Name="Btn_reg"  HorizontalAlignment="Left" Margin="575,458,0,0" VerticalAlignment="Top" Width="111" Height="72" Click="Click_Register" BorderThickness="0" Padding="0" Style="{StaticResource SwitchImageButtonStyle}">
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="MouseEnter">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="Btn_reg" Storyboard.TargetProperty = "Width"  From="75" To="80"  Duration="0:0:0"></DoubleAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="MouseLeave">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetName="Btn_reg" Storyboard.TargetProperty="Width" From="80" To="75" Duration="0:0:0"></DoubleAnimation>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Button.Triggers>
+            <Button.Background>
+                <ImageBrush ImageSource="Btn_reg.png"></ImageBrush>
+            </Button.Background>
+        </Button>
+        <Label x:Name="Lb_move"  HorizontalAlignment="Left" Margin="184,10,0,0" VerticalAlignment="Top" Height="123" Width="417" MouseMove="WindowMove"/>
+
+    </Grid>
+
+</Window>
