@@ -12,6 +12,7 @@ namespace WinNoteLib
         public static int tempUserID; //临时用户ID
         public static int tempUserLevel; //临时用户级别
         public static string tempUserName; //临时用户名
-        public static string tempGroupName; //临时小组名
+        public static string tempGroupName;
+        public static string xxsql = "select groups.group_name from groups,user_detailed_info where groups.id=user_detailed_info.group_id and user_detailed_info.user_id=";
     }
 }

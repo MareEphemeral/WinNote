@@ -8,6 +8,7 @@ namespace WinNoteLib
 {
     public class NoteBookManager 
     {
+        
         public List<NoteBook> getPersonalNoteBook(int id) //获取当前用户的笔记本列表
         {
             List<NoteBook> noteBook=new List<NoteBook>();
@@ -38,6 +39,25 @@ namespace WinNoteLib
                 "name",
                 "owner_id"
                 }, new Object[] { noteBook.name, noteBook.owner }));
+            }
+            catch (Exception e)
+            {
+                message = "您输入的信息有误";
+                CommonPara.ErrorMessage = e.Message;
+            }
+            return message;
+        }
+
+        public String ModifyNoteBookInfo(String newTitle,int noteBookID) //创建一本新的笔记本
+        {
+            String message = "发送成功";
+            BaseConnection conn = new BaseConnection("note_book");
+            try
+            {
+                conn.BaseSP("sp_note_editnotebook", AssistDll.ParaConstructor(new String[] {
+                "name",
+                "note_id"
+                }, new Object[] { newTitle, noteBookID }));
             }
             catch (Exception e)
             {

@@ -43,11 +43,38 @@ namespace WinNoteLib
             return message;
 
         }
+        public String wantToEnterGroup(int groupID, int user_id)//像群主发出请求加入该用户群
+        {
+            String message = "发送成功";
+            BaseConnection conn = new BaseConnection("groups");
+            try
+            {
+                conn.BaseSP("sp_note_apply_enter_group", AssistDll.ParaConstructor(new String[] {
+                "group_id",
+                "user_id"
+                }, new Object[] { groupID, user_id }));
+            }
+            catch (Exception e)
+            {
+                message = "您输入的信息有误";
+                CommonPara.ErrorMessage = e.Message;
+            }
+            return message;
+
+        }
         public String acceptCreateGroup(int userID, String groupName)//批准用户群创建声请
         {
             String message = "成功";
             UserGroupManager usrMana = new UserGroupManager();
             usrMana.CreateNewGroup(groupName, userID);
+            return message;
+        }
+
+        public String acceptCreateGroup(int gourpID, int UserID)//批准用户加入该用户群
+        {
+            String message = "成功";
+            UserGroupManager groupMana = new UserGroupManager();
+            groupMana.enterGroup(gourpID,UserID);
             return message;
         }
         public String wantToRecommend(String userName, String BookName)//像管理员发出声请推荐一篇笔记

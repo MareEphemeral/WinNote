@@ -236,6 +236,26 @@ namespace WinNoteLib
             }
             return message;
         }
+
+        public String ModifyNoteInfo(String newTitle,byte[] newArticle,int   noteID) //创建一本新的笔记本
+        {
+            String message = "发送成功";
+            BaseConnection conn = new BaseConnection("note_info");
+            try
+            {
+                conn.BaseSP("sp_note_editnote", AssistDll.ParaConstructor(new String[] {
+                "title",
+                "article",
+                "note_id"
+                }, new Object[] { newTitle, newArticle, noteID }));
+            }
+            catch (Exception e)
+            {
+                message = "您输入的信息有误";
+                CommonPara.ErrorMessage = e.Message;
+            }
+            return message;
+        }
     }
 
 

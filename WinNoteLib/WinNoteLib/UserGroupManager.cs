@@ -8,6 +8,11 @@ namespace WinNoteLib
 {
     public class UserGroupManager 
     {
+        public string getMyGroupName(int userID)
+        {
+            BaseConnection conn = new BaseConnection("groups");
+            return (string)conn.BaseSelect(CommonPara.xxsql+userID).Rows[0].ItemArray[0];
+        }
         public string[] getGroupMember(int groupID) //获取当前群组的用户名
         {
             
