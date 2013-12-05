@@ -29,7 +29,7 @@ namespace WinNoteLib
                         CommonPara.tempUserID = (int)tempSet.Rows[0].ItemArray[0];
                         CommonPara.tempUserLevel = Convert.ToInt32(result);
                         CommonPara.tempUserName = userName;
-                        CommonPara.tempGroupName = (int)tempSet.Rows[0].ItemArray[3];
+                        CommonPara.tempGroupName = (string)tempSet.Rows[0].ItemArray[3];
                     }
                     else
                     {
